@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Galaxy S25 Ultra</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f7;
+            color: #111;
+        }
+
+        /* NAVBAR */
+        nav {
+            height: 70px;
+            padding: 0 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 30px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 650px;
+            padding: 60px 8%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: linear-gradient(135deg, #eeeeee, #d9d9d9);
+        }
+
+        .hero-content {
+            width: 50%;
+        }
+
+        .small-title {
+            color: #666;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            line-height: 1.05;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #555;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .price {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 25px 0;
+        }
+
+        .buy-btn {
+            padding: 15px 35px;
+            border: none;
+            border-radius: 30px;
+            background: #000;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .buy-btn:hover {
+            background: #333;
+            transform: scale(1.05);
+        }
+
+        /* PHONE IMAGE */
+        .phone-container {
+            width: 45%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-container img {
+            width: 430px;
+            max-width: 100%;
+            height: 520px;
+            object-fit: contain;
+            filter: drop-shadow(0 25px 25px rgba(0,0,0,0.25));
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 70px 8%;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 45px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .feature {
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            background: #f5f5f7;
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+
+        .icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* SPECS */
+        .specs {
+            padding: 70px 8%;
+        }
+
+        .specs h2 {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 35px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        td {
+            padding: 18px 25px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        td:first-child {
+            font-weight: bold;
+            width: 35%;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #000;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 800px) {
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .phone-container {
+                width: 100%;
+                margin-top: 40px;
+            }
+
+            .phone-container img {
+                height: 400px;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media(max-width: 500px) {
+
+            nav {
+                padding: 0 20px;
+            }
+
+            nav div {
+                display: none;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo">SAMSUNG</div>
+
+        <div>
+            <a href="#">Home</a>
+            <a href="#features">Features</a>
+            <a href="#specs">Specs</a>
+        </div>
+    </nav>
+
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Galaxy S Series
+            </div>
+
+            <h1>
+                Galaxy S25 Ultra
+            </h1>
+
+            <p>
+                The ultimate Galaxy smartphone with a stunning
+                display, powerful performance and an advanced
+                camera system.
+            </p>
+
+            <div class="price">
+                ₹1,29,999
+            </div>
+
+            <button class="buy-btn" onclick="buyNow()">
+                Buy Now
+            </button>
+
+        </div>
+
+
+        <div class="phone-container">
+
+            <img
+                src="https://images.samsung.com/is/image/samsung/assets/in/smartphones/galaxy-s25-ultra/buy/S25-Ultra-Titanium-Black.png"
+                alt="Samsung Galaxy S25 Ultra"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+
+        <h2>Why Galaxy S25 Ultra?</h2>
+
+        <div class="feature-grid">
+
+            <div class="feature">
+                <div class="icon">📸</div>
+                <h3>200MP Camera</h3>
+                <p>
+                    Capture detailed photos with the
+                    advanced camera system.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">⚡</div>
+                <h3>Powerful Performance</h3>
+                <p>
+                    Snapdragon 8 Elite delivers
+                    flagship-level performance.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">🔋</div>
+                <h3>5000mAh Battery</h3>
+                <p>
+                    Enjoy long-lasting battery life
+                    throughout the day.
+                </p>
+            </div>
+
+            <div class="feature">
+                <div class="icon">✨</div>
+                <h3>6.9" AMOLED</h3>
+                <p>
+                    Experience an immersive display
+                    with vivid colors.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SPECS -->
+    <section class="specs" id="specs">
+
+        <h2>Specifications</h2>
+
+        <table>
+
+            <tr>
+                <td>Display</td>
+                <td>6.9" Dynamic AMOLED 2X</td>
+            </tr>
+
+            <tr>
+                <td>Processor</td>
+                <td>Snapdragon 8 Elite</td>
+            </tr>
+
+            <tr>
+                <td>Main Camera</td>
+                <td>200MP</td>
+            </tr>
+
+            <tr>
+                <td>Battery</td>
+                <td>5000mAh</td>
+            </tr>
+
+            <tr>
+                <td>RAM</td>
+                <td>12GB / 16GB</td>
+            </tr>
+
+            <tr>
+                <td>Storage</td>
+                <td>256GB / 512GB / 1TB</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 Samsung Galaxy S25 Ultra
+    </footer>
+
+
+    <script>
+
+        function buyNow() {
+            alert("Galaxy S25 Ultra added to your order!");
+        }
+
+    </script>
+
+</body>
+</html>
