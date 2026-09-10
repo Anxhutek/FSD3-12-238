@@ -4,8 +4,8 @@
   "description": "The **HTTP Module** is a built-in Node.js module that allows developers to create **web servers and web clients** without installing any external packages.",
   "main": "prg1.js",
   "scripts": {
-    "start": "node prg5.js",
-    "dev": "nodemon prg5.js"
+    "start": "node prg7.js",
+    "dev": "nodemon prg7.js"
   },
   "keywords": [],
   "author": "",

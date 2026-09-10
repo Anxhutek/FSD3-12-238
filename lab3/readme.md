@@ -21,3 +21,22 @@ It is one of the most important modules in Node.js, originally designed for buil
 - 403 -> forbidden
 - 404 ->not found
 - 500 -> Internal server error
+
+
+### Server can send to the client
+1. html contents -> prg2, prg3
+2. html file -> prg5
+3. json data -> prg4
+4. plain file
+5. js file
+6. any file to download
+7. etc
+
+## Type of information -> res.writehead (), res.setHeader()
+1. text/html -> for html file/contents
+2. text/json -> for json data
+3. text/css -> for css file/contents
+4. application -> for file
+5. text/pulse -> for plain text file
+
+### Note: .gitignore -> this file contains the list 

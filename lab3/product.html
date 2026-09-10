@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Samsung Galaxy S25 Ultra</title>
 
     <style>
@@ -10,193 +11,574 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: Inter, Arial, sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
-            background: #f5f5f7;
-            color: #111;
+            background: #050505;
+            color: #fff;
+            overflow-x: hidden;
         }
 
-        /* NAVBAR */
+        /* ================= NAVBAR ================= */
+
         nav {
-            height: 70px;
-            padding: 0 8%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 72px;
+            padding: 0 7%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            background: #000;
-            color: white;
+            justify-content: space-between;
+            z-index: 1000;
+
+            background: rgba(5, 5, 5, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .logo {
-            font-size: 24px;
-            font-weight: bold;
+            font-size: 21px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .logo span {
+            color: #aaa;
+            font-weight: 400;
+        }
+
+        nav .links {
+            display: flex;
+            gap: 35px;
         }
 
         nav a {
-            color: white;
+            color: #bbb;
             text-decoration: none;
-            margin-left: 30px;
+            font-size: 14px;
+            transition: 0.3s;
         }
 
-        /* HERO */
+        nav a:hover {
+            color: #fff;
+        }
+
+        .nav-btn {
+            background: #fff;
+            color: #000;
+            padding: 10px 19px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+
+        .nav-btn:hover {
+            background: #ddd;
+            color: #000;
+        }
+
+        /* ================= HERO ================= */
+
         .hero {
-            min-height: 650px;
-            padding: 60px 8%;
+            min-height: 100vh;
+            padding: 140px 7% 70px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background: linear-gradient(135deg, #eeeeee, #d9d9d9);
+            gap: 40px;
+
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 75% 45%, #292929 0%, #111 25%, #050505 60%);
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            right: -150px;
+            top: 100px;
+
+            background: rgba(255,255,255,0.05);
+            filter: blur(100px);
+            border-radius: 50%;
         }
 
         .hero-content {
-            width: 50%;
+            width: 52%;
+            position: relative;
+            z-index: 2;
         }
 
-        .small-title {
-            color: #666;
-            font-size: 18px;
-            margin-bottom: 12px;
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 8px 15px;
+            border-radius: 30px;
+
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+
+            color: #bbb;
+            font-size: 13px;
+            margin-bottom: 22px;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 12px #fff;
         }
 
         .hero h1 {
-            font-size: 60px;
-            line-height: 1.05;
-            margin-bottom: 20px;
+            font-size: clamp(50px, 6vw, 88px);
+            line-height: 0.95;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+
+            background: linear-gradient(
+                120deg,
+                #fff,
+                #aaa
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h1 span {
+            display: block;
         }
 
         .hero p {
-            font-size: 19px;
-            color: #555;
-            line-height: 1.6;
-            max-width: 500px;
+            max-width: 560px;
+            color: #999;
+            font-size: 17px;
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .price-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
         .price {
             font-size: 32px;
-            font-weight: bold;
-            margin: 25px 0;
+            font-weight: 700;
+        }
+
+        .starting {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
         }
 
         .buy-btn {
-            padding: 15px 35px;
             border: none;
+            padding: 15px 30px;
             border-radius: 30px;
-            background: #000;
-            color: white;
-            font-size: 17px;
+
+            background: #fff;
+            color: #000;
+
+            font-size: 15px;
+            font-weight: 700;
             cursor: pointer;
+
             transition: 0.3s;
         }
 
         .buy-btn:hover {
-            background: #333;
-            transform: scale(1.05);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255,255,255,0.15);
         }
 
-        /* PHONE IMAGE */
+        .explore-btn {
+            padding: 15px 28px;
+            border-radius: 30px;
+
+            border: 1px solid #333;
+            color: #fff;
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .explore-btn:hover {
+            border-color: #777;
+            background: #111;
+        }
+
+        /* ================= PHONE ================= */
+
         .phone-container {
             width: 45%;
+            min-height: 600px;
+
             display: flex;
+            align-items: center;
             justify-content: center;
+
+            position: relative;
+            z-index: 2;
+        }
+
+        .phone-glow {
+            position: absolute;
+            width: 320px;
+            height: 500px;
+
+            background: #555;
+            opacity: 0.15;
+            filter: blur(80px);
+            border-radius: 50%;
         }
 
         .phone-container img {
-            width: 430px;
-            max-width: 100%;
-            height: 520px;
+            width: min(500px, 100%);
+            max-height: 650px;
+
             object-fit: contain;
-            filter: drop-shadow(0 25px 25px rgba(0,0,0,0.25));
+
+            position: relative;
+            z-index: 2;
+
+            filter:
+                drop-shadow(0 35px 35px rgba(0,0,0,0.7));
+
+            animation: floatPhone 5s ease-in-out infinite;
         }
 
-        /* FEATURES */
+        @keyframes floatPhone {
+
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* ================= STATS ================= */
+
+        .stats {
+            padding: 25px 7% 70px;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+
+            background: #050505;
+        }
+
+        .stat {
+            padding: 25px;
+
+            background: linear-gradient(
+                145deg,
+                #111,
+                #090909
+            );
+
+            border: 1px solid #1d1d1d;
+            border-radius: 18px;
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 27px;
+            margin-bottom: 7px;
+        }
+
+        .stat span {
+            color: #777;
+            font-size: 13px;
+        }
+
+        /* ================= FEATURES ================= */
+
         .features {
-            padding: 70px 8%;
-            background: white;
+            padding: 110px 7%;
+
+            background:
+                linear-gradient(#080808, #0d0d0d);
         }
 
-        .features h2 {
+        .section-title {
             text-align: center;
-            font-size: 35px;
-            margin-bottom: 45px;
+            margin-bottom: 60px;
+        }
+
+        .section-title .eyebrow {
+            color: #777;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .section-title h2 {
+            font-size: clamp(35px, 5vw, 55px);
+            letter-spacing: -2px;
+        }
+
+        .section-title p {
+            max-width: 600px;
+            margin: 15px auto 0;
+            color: #777;
+            line-height: 1.6;
         }
 
         .feature-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
+            gap: 18px;
         }
 
         .feature {
-            padding: 30px 20px;
-            text-align: center;
-            border-radius: 15px;
-            background: #f5f5f7;
-            transition: 0.3s;
+            min-height: 260px;
+            padding: 30px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.07),
+                    rgba(255,255,255,0.025)
+                );
+
+            border: 1px solid rgba(255,255,255,0.08);
+
+            transition: 0.4s;
         }
 
         .feature:hover {
-            transform: translateY(-5px);
+            transform: translateY(-8px);
+            border-color: #444;
+            background: #111;
         }
 
         .icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
+            width: 52px;
+            height: 52px;
 
-        .feature h3 {
-            margin-bottom: 10px;
-        }
+            display: flex;
+            align-items: center;
+            justify-content: center;
 
-        .feature p {
-            color: #666;
-            line-height: 1.5;
-        }
+            border-radius: 15px;
 
-        /* SPECS */
-        .specs {
-            padding: 70px 8%;
-        }
+            background: #1a1a1a;
+            border: 1px solid #292929;
 
-        .specs h2 {
-            text-align: center;
-            font-size: 35px;
+            font-size: 25px;
             margin-bottom: 35px;
         }
 
-        table {
-            width: 100%;
-            max-width: 800px;
-            margin: auto;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 15px;
+        .feature h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ================= CAMERA SECTION ================= */
+
+        .camera-section {
+            padding: 120px 7%;
+
+            display: flex;
+            align-items: center;
+            gap: 80px;
+
+            background: #050505;
+        }
+
+        .camera-image {
+            width: 50%;
+            min-height: 420px;
+
+            border-radius: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                radial-gradient(circle, #333, #090909 65%);
+
+            border: 1px solid #1d1d1d;
             overflow: hidden;
         }
 
-        td {
-            padding: 18px 25px;
-            border-bottom: 1px solid #ddd;
+        .camera-image img {
+            width: 75%;
+            filter: drop-shadow(0 25px 30px #000);
+            transform: rotate(-8deg);
         }
 
-        td:first-child {
-            font-weight: bold;
-            width: 35%;
+        .camera-content {
+            width: 50%;
         }
 
-        /* FOOTER */
-        footer {
-            background: #000;
-            color: white;
+        .camera-content .eyebrow {
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+        }
+
+        .camera-content h2 {
+            font-size: clamp(40px, 5vw, 65px);
+            line-height: 1;
+            margin: 18px 0;
+            letter-spacing: -3px;
+        }
+
+        .camera-content p {
+            color: #777;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .camera-number {
+            margin-top: 30px;
+            font-size: 70px;
+            font-weight: 800;
+            letter-spacing: -5px;
+        }
+
+        .camera-number span {
+            font-size: 22px;
+            color: #777;
+            letter-spacing: 0;
+        }
+
+        /* ================= SPECS ================= */
+
+        .specs {
+            padding: 110px 7%;
+            background: #0b0b0b;
+        }
+
+        .spec-table {
+            max-width: 900px;
+            margin: auto;
+
+            border: 1px solid #222;
+            border-radius: 22px;
+            overflow: hidden;
+
+            background: #101010;
+        }
+
+        .spec-row {
+            display: grid;
+            grid-template-columns: 35% 65%;
+
+            padding: 21px 28px;
+            border-bottom: 1px solid #222;
+        }
+
+        .spec-row:last-child {
+            border-bottom: none;
+        }
+
+        .spec-name {
+            color: #777;
+        }
+
+        .spec-value {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        /* ================= CTA ================= */
+
+        .cta {
+            padding: 100px 7%;
+
             text-align: center;
-            padding: 25px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    #222,
+                    #050505 60%
+                );
         }
 
-        /* RESPONSIVE */
-        @media(max-width: 800px) {
+        .cta h2 {
+            font-size: clamp(40px, 6vw, 70px);
+            letter-spacing: -3px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            padding: 30px 7%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            color: #666;
+            font-size: 13px;
+
+            border-top: 1px solid #151515;
+            background: #050505;
+        }
+
+        footer strong {
+            color: #aaa;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media(max-width: 900px) {
+
+            nav {
+                padding: 0 5%;
+            }
+
+            nav .links {
+                display: none;
+            }
 
             .hero {
+                padding: 130px 6% 60px;
                 flex-direction: column;
                 text-align: center;
             }
@@ -205,36 +587,135 @@
                 width: 100%;
             }
 
-            .hero h1 {
-                font-size: 42px;
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
             }
 
             .phone-container {
                 width: 100%;
-                margin-top: 40px;
+                min-height: 450px;
             }
 
             .phone-container img {
-                height: 400px;
+                max-height: 500px;
+            }
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 20px 6% 60px;
             }
 
             .feature-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-        }
 
-        @media(max-width: 500px) {
-
-            nav {
-                padding: 0 20px;
+            .camera-section {
+                flex-direction: column;
             }
 
-            nav div {
-                display: none;
+            .camera-image,
+            .camera-content {
+                width: 100%;
+            }
+
+            .camera-content {
+                text-align: center;
+            }
+
+            .camera-content p {
+                margin: auto;
+            }
+        }
+
+        @media(max-width: 550px) {
+
+            nav {
+                height: 64px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-btn {
+                padding: 8px 14px;
+                font-size: 12px;
+            }
+
+            .hero {
+                padding-top: 110px;
+            }
+
+            .hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .buy-btn,
+            .explore-btn {
+                width: 220px;
+            }
+
+            .phone-container {
+                min-height: 350px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stat {
+                padding: 18px;
+            }
+
+            .stat strong {
+                font-size: 21px;
             }
 
             .feature-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .feature {
+                min-height: auto;
+            }
+
+            .camera-section {
+                padding: 80px 6%;
+                gap: 50px;
+            }
+
+            .camera-image {
+                min-height: 300px;
+            }
+
+            .camera-number {
+                font-size: 55px;
+            }
+
+            .spec-row {
+                grid-template-columns: 1fr;
+                gap: 8px;
+                padding: 18px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
             }
         }
     </style>
@@ -243,48 +724,79 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav>
-        <div class="logo">SAMSUNG</div>
 
-        <div>
+    <nav>
+
+        <div class="logo">
+            SAMSUNG <span>Galaxy</span>
+        </div>
+
+        <div class="links">
             <a href="#">Home</a>
             <a href="#features">Features</a>
+            <a href="#camera">Camera</a>
             <a href="#specs">Specs</a>
         </div>
+
+        <a href="#buy" class="nav-btn">
+            Buy Now
+        </a>
+
     </nav>
 
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
+
     <section class="hero">
 
         <div class="hero-content">
 
-            <div class="small-title">
-                Galaxy S Series
+            <div class="badge">
+                <div class="dot"></div>
+                Galaxy S Series · 2026
             </div>
 
             <h1>
-                Galaxy S25 Ultra
+                <span>Galaxy</span>
+                S25 Ultra
             </h1>
 
             <p>
-                The ultimate Galaxy smartphone with a stunning
-                display, powerful performance and an advanced
-                camera system.
+                Meet the next level of Galaxy. A premium titanium
+                design, powerful performance and an advanced
+                camera system built to capture every detail.
             </p>
 
-            <div class="price">
-                ₹1,29,999
+            <div class="price-box">
+
+                <div class="price">
+                    ₹1,29,999
+                </div>
+
+                <div class="starting">
+                    Starting price
+                </div>
+
             </div>
 
-            <button class="buy-btn" onclick="buyNow()">
-                Buy Now
-            </button>
+            <div class="hero-buttons">
+
+                <button class="buy-btn" onclick="buyNow()">
+                    Buy Galaxy S25 Ultra
+                </button>
+
+                <a href="#features" class="explore-btn">
+                    Explore Features
+                </a>
+
+            </div>
 
         </div>
 
 
         <div class="phone-container">
+
+            <div class="phone-glow"></div>
 
             <img
                 src="https://images.samsung.com/is/image/samsung/assets/in/smartphones/galaxy-s25-ultra/buy/S25-Ultra-Titanium-Black.png"
@@ -296,47 +808,118 @@
     </section>
 
 
+    <!-- QUICK SPECS -->
+
+    <section class="stats">
+
+        <div class="stat">
+            <strong>200MP</strong>
+            <span>High Resolution Camera</span>
+        </div>
+
+        <div class="stat">
+            <strong>6.9"</strong>
+            <span>Dynamic AMOLED 2X</span>
+        </div>
+
+        <div class="stat">
+            <strong>5000mAh</strong>
+            <span>All-day Battery</span>
+        </div>
+
+        <div class="stat">
+            <strong>12GB+</strong>
+            <span>Powerful RAM</span>
+        </div>
+
+    </section>
+
+
     <!-- FEATURES -->
+
     <section class="features" id="features">
 
-        <h2>Why Galaxy S25 Ultra?</h2>
+        <div class="section-title">
+
+            <div class="eyebrow">
+                Built for Ultra
+            </div>
+
+            <h2>
+                Everything you need.
+            </h2>
+
+            <p>
+                Flagship hardware, intelligent software and a
+                premium design come together in one powerful device.
+            </p>
+
+        </div>
+
 
         <div class="feature-grid">
 
             <div class="feature">
+
                 <div class="icon">📸</div>
-                <h3>200MP Camera</h3>
+
+                <h3>
+                    200MP Camera
+                </h3>
+
                 <p>
-                    Capture detailed photos with the
-                    advanced camera system.
+                    Capture incredibly detailed images with
+                    Samsung's advanced high-resolution camera system.
                 </p>
+
             </div>
 
+
             <div class="feature">
+
                 <div class="icon">⚡</div>
-                <h3>Powerful Performance</h3>
+
+                <h3>
+                    Ultra Performance
+                </h3>
+
                 <p>
-                    Snapdragon 8 Elite delivers
-                    flagship-level performance.
+                    Snapdragon 8 Elite delivers smooth gaming,
+                    multitasking and AI-powered performance.
                 </p>
+
             </div>
 
+
             <div class="feature">
+
                 <div class="icon">🔋</div>
-                <h3>5000mAh Battery</h3>
+
+                <h3>
+                    5000mAh Battery
+                </h3>
+
                 <p>
-                    Enjoy long-lasting battery life
-                    throughout the day.
+                    Stay productive and entertained throughout
+                    the day with a powerful long-lasting battery.
                 </p>
+
             </div>
 
+
             <div class="feature">
+
                 <div class="icon">✨</div>
-                <h3>6.9" AMOLED</h3>
+
+                <h3>
+                    Dynamic AMOLED
+                </h3>
+
                 <p>
-                    Experience an immersive display
-                    with vivid colors.
+                    Enjoy an immersive 6.9-inch display with
+                    rich colors and sharp details.
                 </p>
+
             </div>
 
         </div>
@@ -344,61 +927,174 @@
     </section>
 
 
-    <!-- SPECS -->
+    <!-- CAMERA -->
+
+    <section class="camera-section" id="camera">
+
+        <div class="camera-image">
+
+            <img
+                src="https://images.samsung.com/is/image/samsung/assets/in/smartphones/galaxy-s25-ultra/buy/S25-Ultra-Titanium-Black.png"
+                alt="Galaxy Camera"
+            >
+
+        </div>
+
+
+        <div class="camera-content">
+
+            <div class="eyebrow">
+                Pro-grade photography
+            </div>
+
+            <h2>
+                Your pocket.
+                Your studio.
+            </h2>
+
+            <p>
+                From breathtaking landscapes to detailed close-ups,
+                the Galaxy S25 Ultra gives you the tools to capture
+                professional-looking photos wherever you go.
+            </p>
+
+            <div class="camera-number">
+                200<span>MP</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SPECIFICATIONS -->
+
     <section class="specs" id="specs">
 
-        <h2>Specifications</h2>
+        <div class="section-title">
 
-        <table>
+            <div class="eyebrow">
+                Technical details
+            </div>
 
-            <tr>
-                <td>Display</td>
-                <td>6.9" Dynamic AMOLED 2X</td>
-            </tr>
+            <h2>
+                Specifications
+            </h2>
 
-            <tr>
-                <td>Processor</td>
-                <td>Snapdragon 8 Elite</td>
-            </tr>
+        </div>
 
-            <tr>
-                <td>Main Camera</td>
-                <td>200MP</td>
-            </tr>
 
-            <tr>
-                <td>Battery</td>
-                <td>5000mAh</td>
-            </tr>
+        <div class="spec-table">
 
-            <tr>
-                <td>RAM</td>
-                <td>12GB / 16GB</td>
-            </tr>
+            <div class="spec-row">
+                <div class="spec-name">Display</div>
+                <div class="spec-value">
+                    6.9" Dynamic AMOLED 2X
+                </div>
+            </div>
 
-            <tr>
-                <td>Storage</td>
-                <td>256GB / 512GB / 1TB</td>
-            </tr>
+            <div class="spec-row">
+                <div class="spec-name">Processor</div>
+                <div class="spec-value">
+                    Snapdragon 8 Elite
+                </div>
+            </div>
 
-        </table>
+            <div class="spec-row">
+                <div class="spec-name">Main Camera</div>
+                <div class="spec-value">
+                    200MP
+                </div>
+            </div>
+
+            <div class="spec-row">
+                <div class="spec-name">Battery</div>
+                <div class="spec-value">
+                    5000mAh
+                </div>
+            </div>
+
+            <div class="spec-row">
+                <div class="spec-name">RAM</div>
+                <div class="spec-value">
+                    12GB / 16GB
+                </div>
+            </div>
+
+            <div class="spec-row">
+                <div class="spec-name">Storage</div>
+                <div class="spec-value">
+                    256GB / 512GB / 1TB
+                </div>
+            </div>
+
+            <div class="spec-row">
+                <div class="spec-name">Build</div>
+                <div class="spec-value">
+                    Titanium Frame
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="cta" id="buy">
+
+        <h2>
+            Go Ultra.
+        </h2>
+
+        <p>
+            Experience the Galaxy S25 Ultra.
+        </p>
+
+        <button class="buy-btn" onclick="buyNow()">
+            Buy Now · ₹1,29,999
+        </button>
 
     </section>
 
 
     <!-- FOOTER -->
+
     <footer>
-        © 2026 Samsung Galaxy S25 Ultra
+
+        <div>
+            © 2026 <strong>Samsung Galaxy S25 Ultra</strong>
+        </div>
+
+        <div>
+            Designed for the Galaxy experience.
+        </div>
+
     </footer>
+
+
+
+
+
 
 
     <script>
 
         function buyNow() {
-            alert("Galaxy S25 Ultra added to your order!");
+
+            alert(
+                "Galaxy S25 Ultra added to your order! 📱"
+            );
+
         }
 
     </script>
+
+
+
+
+
 
 </body>
 </html>
