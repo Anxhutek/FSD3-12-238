@@ -11,3 +11,5 @@
 
 
  // All functions are promised so it must be called await
+
+ //lab2 done
