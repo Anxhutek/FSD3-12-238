@@ -6,11 +6,11 @@ let users=[
 
 let nextId = 3;
 
-const getALLUsers = () => {
+export const getALLUsers = () => {
     return users;
 }
 
-const getUserById = (pid) => {
+export const getUserById = (pid) => {
     const found = users.find((user) => user.id === pid);
     return found;
 }
@@ -19,4 +19,23 @@ export const addUser = (user) => {
     user.id = nextId++;
     users.push(user);
     return user;
+};
+
+export const updateUser = (pid, updatedData) => {
+    const index= users.findIndex((user) => user.id === pid);
+    if(index == -1) {
+        return false;
+    }
+    updatedData.id= pid;
+    users[index]= updatedData;
+    return updatedData;
+};
+
+export const deleteUser = (pid) => {
+    const index = users.findIndex((user)=> user.id === pid);
+    if(index == -1) {
+        return false;
+    }   
+    users.splice(index,1);
+    return true;
 };
