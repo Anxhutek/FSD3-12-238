@@ -1,35 +1,38 @@
 import { EventEmitter } from 'events';
+
 class DomClass extends EventEmitter {
+
     addEventListener(eventName, callback) {
         this.on(eventName, callback);
     }
+
     removeEventListener(eventName, callback) {
         this.off(eventName, callback);
     }
 
-    dispatchEvent(eventName,eventData={}){
+    dispatchEvent(eventName, eventData = {}) {
         const event = {
             type: eventName,
             timespam: new Date(),
-            ...eventData,
+            ...eventData
         };
-        this.emit(eventName,event);
-    }
 
+        this.emit(eventName, event);
+    }
 }
 
 const button = new DomClass();
-const handleClick = (event) => {
-    console.log(`Button clicked at ${event.timespam}`);
+
+const clickHandler = (event) => {
+    console.log(`Button was clicked at ${event.timespam}`);
 };
 
-button.addEventListener('click', handleClick);
-button.dispatchEvent('click',{
-    target:"submit8n",
+button.addEventListener('click', clickHandler);
+
+button.dispatchEvent('click', {
+    target: 'submitButton'
 });
 
-
-button.addEventListener('click', handleClick);
-button.dispatchEvent('click',{
-    target:"reset8n",
+button.dispatchEvent('click', {
+    target: 'resetButton'
 });
