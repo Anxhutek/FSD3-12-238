@@ -5,10 +5,18 @@ let users=[
 ];
 
 let nextId = 3;
-export const getUsers = () => users;
 
-export const addUser= (user) =>{
-    user.id=nextId++;
+const getALLUsers = () => {
+    return users;
+}
+
+const getUserById = (pid) => {
+    const found = users.find((user) => user.id === pid);
+    return found;
+}
+
+export const addUser = (user) => {
+    user.id = nextId++;
     users.push(user);
     return user;
 };

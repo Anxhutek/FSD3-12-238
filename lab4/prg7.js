@@ -19,7 +19,8 @@ const server = http.createServer((req, res) => {
     }
     else if(req.url.startsWith(" /api/users")&& req.method === 'GET') {
         const userId = Number(req.url.split('/').pop());
-        res.end(JSON.stringify({ msg: `showing detail of user with ${userId}` })); 
+        const user = getUserById(userId);
+        res.end(JSON.stringify({ msg: `showing detail of user with ${userId}`, user })); 
     }
     else if(req.url === '/api/users/1'&& req.method === 'PUT') {
         res.end(JSON.stringify({ msg: "update user 1"})) 
