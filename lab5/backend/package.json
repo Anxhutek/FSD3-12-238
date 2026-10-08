@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "prg4.js",
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon prg4.js" 
+    "start": "node prg4.js",
+    "dev": "nodemon prg4.js"
   },
   "keywords": [],
   "author": "",
