@@ -41,3 +41,31 @@ cd backend
             console.log('Server is running on http://localhost:4444')
         })
 ```
+## Static Files
+
+Express can serve static HTML, CSS, JS, images, etc. using the built-in `express.static()` middleware.
+
+```js
+app.use(express.static("public"));
+```
+
+Here, `public` is the folder containing static files.
+
+---
+
+## Middleware
+
+Middleware is a function that executes **between the request and response**. It is used to perform tasks before the final route execution.
+
+```js
+app.use((req, res, next) => {
+    console.log("Middleware executed");
+    next();
+});
+```
+
+- `app.use()` → used to apply middleware.
+- `next()` → passes control to the next middleware/route.
+- `express.static()` → serves static files.
+
+**Flow:** `Request → Middleware → Route → Response`
